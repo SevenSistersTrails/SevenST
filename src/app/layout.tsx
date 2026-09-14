@@ -13,8 +13,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+function resolveSiteUrl() {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+    "http://localhost:3000",
+  ];
+
+  for (const candidate of candidates) {
+    const value = candidate?.trim();
+    if (!value) continue;
+
+    try {
+      return new URL(value.includes("://") ? value : `https://${value}`).origin;
+    } catch {
+      continue;
+    }
+  }
+
+  return "http://localhost:3000";
+}
+
+const siteUrl = resolveSiteUrl();
 
 const siteDescription =
   "Self-drive vehicle rentals in Shillong, Guwahati, and the Northeast. Book local fleets, or find vendors who list with us.";
