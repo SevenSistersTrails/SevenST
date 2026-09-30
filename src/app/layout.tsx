@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
+import { SiteFooter } from "@/components/landing/site-footer";
+import { SiteHeader } from "@/components/landing/site-header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -71,13 +72,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
-        <header className="border-b border-black/[.08] px-6 py-4 dark:border-white/[.145]">
-          <Link href="/" className="text-sm font-semibold tracking-tight">
-            SevenSistersTrails
-          </Link>
-        </header>
-        {children}
+      <body className="flex min-h-full flex-col bg-[var(--sst-surface)] font-sans text-[var(--sst-ink)]">
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

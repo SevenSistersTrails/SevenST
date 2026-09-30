@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sst-ink: #0f172a;
+  --sst-muted: #475569;
+  --sst-surface: #fafaf9;
+  --sst-surface-muted: #a8a29e;
+  --sst-hero-bg: #f0fdf4;
+  --sst-border: #e7e5e4;
+  --sst-primary: #0f766e;
+  --sst-primary-hover: #0d9488;
+  --sst-primary-soft: #ccfbf1;
+  --sst-primary-glow: rgba(15, 118, 110, 0.22);
+  --sst-accent: #ca8a04;
+  --sst-accent-soft: #fef9c3;
+  --background: var(--sst-surface);
+  --foreground: var(--sst-ink);
 }
 
 @theme inline {
@@ -14,13 +26,29 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --sst-ink: #f8fafc;
+    --sst-muted: #94a3b8;
+    --sst-surface: #0c0a09;
+    --sst-surface-muted: #78716c;
+    --sst-hero-bg: #042f2e;
+    --sst-border: #292524;
+    --sst-primary: #2dd4bf;
+    --sst-primary-hover: #5eead4;
+    --sst-primary-soft: rgba(45, 212, 191, 0.12);
+    --sst-primary-glow: rgba(45, 212, 191, 0.18);
+    --sst-accent: #facc15;
+    --sst-accent-soft: rgba(250, 204, 21, 0.12);
+    --background: var(--sst-surface);
+    --foreground: var(--sst-ink);
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
