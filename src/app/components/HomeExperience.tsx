@@ -172,7 +172,7 @@ export default function HomeExperience() {
             the best and cheapest options near you
           </h1>
         </div>
-        <div className="relative mt-auto mb-10 flex justify-center">
+        <div className="relative mt-auto mb-8 flex justify-center sm:mb-20">
           <ModeTabs activeMode={activeMode} onModeChange={handleModeChange} />
         </div>
       </main>
